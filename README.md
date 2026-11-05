@@ -433,7 +433,7 @@ Restore is validated and transactional. Damaged records are skipped with a warni
 
 ## Testing
 
-### Automated tests (all executed on Windows, Node 24.21: **8 suites, 126 tests, all passing**)
+### Automated tests (all executed on Windows, Node 24.21: **9 suites, 129 tests, all passing**)
 
 ```powershell
 npm test            # all tests
@@ -451,6 +451,7 @@ npm run doctor      # 20/20 checks passed
 | `tests/wardrobe-filter.test.ts` | Search, every filter, sorting, and a **600‑item wardrobe** generating an outfit in well under the 1.5 s budget. |
 | `tests/weather-service.test.ts` | Open‑Meteo parsing against a real response shape, malformed payloads, coordinate rounding, stale rules. |
 | `tests/sprites.test.ts` | Every sprite is rectangular, correctly sized and uses known colors. |
+| `tests/style-safety.test.ts` | Regression guard for a device crash: no component passes a `null` or `undefined` transform, which React Native rejects on iPhone but the Jest renderer does not catch. |
 | `tests/ui.test.tsx` | Components render in light and dark mode; all icons render; buttons, chips and the lock **switch** expose correct accessibility roles and states; the weather card shows live, stale and no‑location states; Reduce Motion. |
 
 Coverage (from `npx jest --coverage`, counting only files the tests load): engine ~88% statements, `backupFormat` ~91%, repositories ~78%. Screens and native‑module wrappers (camera, file system, notifications) are **not** unit‑tested; they need device testing.
