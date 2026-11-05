@@ -1,17 +1,20 @@
 {
   "expo": {
     "name": "Wardgo",
-    "slug": "Wardgo",
+    "slug": "wardgo",
     "version": "1.0.0",
+    "scheme": "wardgo",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#FFF6E5",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.wardgo"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#FFF6E5",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -20,6 +23,31 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-sqlite",
+      "expo-image",
+      "expo-sharing",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Wardgo uses your photo library so you can add pictures of your clothes. Photos stay on this device.",
+          "cameraPermission": "Wardgo uses the camera so you can photograph your clothes. Photos stay on this device."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Wardgo uses your approximate location to fetch today's weather for outfit suggestions."
+        }
+      ],
+      "expo-notifications"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
